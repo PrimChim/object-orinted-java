@@ -1,0 +1,25 @@
+package heraldcollege;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class EmailVerify {
+	
+	String regisForEmail = "^[\\S]+[@]heraldcollege.edu.np";
+	String regixPassword ="^[A-Z]+\\w+[\\@\\#\\$\\%\\+\\-]+\\w+[\\%\\+\\-\\#\\@\\$]+[A-Z]+\\w+\\d+";
+	
+	public static void main(String []args) {
+
+		EmailVerify email = new EmailVerify();
+		System.out.println(Pattern.matches(email.regisForEmail,"pritamgurung@heraldcollege.edu.np"));
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a password:");
+		String pass = sc.next();
+		
+		System.out.println(Pattern.matches(email.regixPassword, pass));
+		
+		
+	}
+}

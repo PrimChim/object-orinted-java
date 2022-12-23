@@ -1,0 +1,35 @@
+package heraldcollege;
+
+public class Mobile {
+	String brand;
+
+	Mobile(){  	// constructor
+		brand = "nokia";
+	}
+	Mobile(String brand){
+		this.brand = brand;
+	}
+	public void printBrand() { 	// methods
+		System.out.println(this.brand);
+	}
+	public void printBrand(String brand) {
+		System.out.println(brand);
+	}
+}
+
+class Phone extends Mobile {
+	
+	@Override
+	public void printBrand() {
+		System.out.println("L.G.");
+	}
+	
+	public static void main(String[] args) {
+		Phone lg = new Phone();
+		lg.printBrand();
+		
+		Mobile nokia = new Mobile();
+		nokia.printBrand();
+	}
+	
+}

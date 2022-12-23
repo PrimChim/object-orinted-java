@@ -1,0 +1,67 @@
+package adminModule;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Admin extends TmsUser  {
+	private List<Landlord> landlords = new ArrayList<>();
+	
+//Clt + Shift + t
+//	Alt + Shift + M = Create method
+//	addLandlord(List<Landlord> landlords) - it will add list of landlords at a time
+
+	public void addLandlord(List<Landlord> landLords) {
+		System.out.println("Adding list of landlords");
+	}
+	
+//	addLandlord(Landlord landlord) - it will add one landlord at a time
+	public void addLandlord(Landlord landlord) {
+		System.out.println("Adding one landlord");
+	}
+	
+//	addLandlord(Landlord landlord, boolean isVipLandlord)-
+	public void addLandlord(Landlord landlord, boolean isVipLandlord) {
+		System.out.println("Adding one landlord with isVipLandlord field set");
+	}
+	
+	
+	public void viewLandlords() {
+		if(landlords.isEmpty()) {
+			throw new LandlordNotFoundException();		
+		}
+	}
+	
+	
+
+	//Ctrl+Shift+F
+	public void updateLandlord() {
+
+	}
+	
+	public void deleteLandlord() {
+
+	}
+	
+	public void addTenant() {
+
+	}
+
+	public void viewTenants() {
+
+	}
+
+	//Ctrl+Shift+F
+	public void updateTenant() {
+
+	}
+	
+	public void deleteTenant() {
+
+	}
+	public static void main(String [] args) {
+		Admin admin = new Admin();
+		admin.viewLandlords();
+	}
+	// Shift + Alt + S
+
+}

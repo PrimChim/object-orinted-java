@@ -1,0 +1,30 @@
+package com.azaonlinefoodordering;
+
+import java.util.Scanner;
+
+public class LogIn {
+	
+	static Scanner sc = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		
+		SignUp pass = new SignUp();
+	
+		System.out.println("Hello there welcome to the AZA online."
+				+"\nPlease enter 1 for sign up."
+				+"\nPlease enter 2 for Quit.");
+		int in = sc.nextInt();
+		
+		switch (in) {
+		case 1:
+			System.out.println("Proceeding to login...");
+			break;
+		case 2:
+			System.out.println("Proceeding to sign up...");
+			pass.signUp();
+			break;
+		case 3:
+			System.exit(0);
+		}
+	}
+}

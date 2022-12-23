@@ -1,0 +1,10 @@
+package adminModule;
+
+public class TenantBillNotFound extends RuntimeException {
+
+	public TenantBillNotFound() {
+		super(" bill is not created by the landlord");
+	}
+	
+
+}

@@ -1,0 +1,52 @@
+package com.azaonlinefoodordering;
+
+import java.util.Scanner;
+import java.io.File;
+import java.util.regex.Pattern;
+
+public class SignUp {
+	public String nameString = "^[\\w\\s\\w]{4,}";
+	public String passString = "^\\w+(@|&)+\\d*";
+	public String dateOfBirth ="^(0[1-9]|1[0-2])\\/(0\\d|1\\d|2\\d|3[0-1])\\/(19|20)\\d{2}";
+	public String userName = "^[0]\\d{9}";
+	Scanner sc = new Scanner(System.in);
+	File obj = new File("SignUp.txt");
+	
+	public void signUp() {
+
+		boolean flag = true;
+		String password = "", name="", userName="",dob="";
+		while (flag) {
+			
+			System.out.println("\nPlease enter your full name: ");
+			name = sc.next()+" "+sc.next();
+			
+			System.out.println("\nPlese enter your mobile number(Username):");
+			userName = sc.next();
+			
+			System.out.println("\nPlease enter your date of birth(MM/DD/YY):");
+			dob = sc.next();
+			
+			System.out.println("\nPlese enter your password:");
+			password = sc.next();
+			
+			if(!Pattern.matches(this.nameString, name)) {
+				System.out.println("Your name is incorrect (it must be at least 4 characters):\n"
+						+ "Please re-enter it");
+			}else if(!Pattern.matches(this.userName, userName)) {
+				System.out.println("Your mobile number is incorrect (it must begin with 0 and must have 10 numbers):\n"
+						+ "Please re-enter it...");
+			}else if(!Pattern.matches(this.dateOfBirth,dob)){
+				System.out.println("Wrong date format see this format (MM/DD/YYYY).\n"
+						+"And please try again");
+			}else if(!Pattern.matches(this.passString, password)) {
+				System.out.println("Your password format is incorrect (it must contain at least character @ or & and end with number):\n"
+						+ "Please re-enter it...");
+			}
+			else {
+				flag = false;
+			}
+		}
+		System.out.println(name+" "+dob+" "+password+" "+userName);
+	}
+}

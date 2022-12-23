@@ -1,0 +1,20 @@
+package heraldcollege;
+
+public class Mobile {
+	String brand;
+	
+	// constructor
+	Mobile(){
+		brand = "nokia";
+	}
+	
+	Mobile(String brand){
+		this.brand = brand;
+	}
+	
+	public static void main(String [] args) {
+		Mobile samsung = new Mobile("samsung");
+		
+		System.out.println(samsung.brand);
+	}
+}

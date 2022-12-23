@@ -1,0 +1,27 @@
+package workshop;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Exception {
+
+	public static void main(String[] args) {
+		int a=-1;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Give me an number:");
+		try {
+			a = sc.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println("There is error while taking input from you");
+		}
+		
+		String b[]= {"apple", "ball","cat"};
+		
+		System.out.println(b[a]);
+		
+		System.out.println("End");
+
+	}
+
+}

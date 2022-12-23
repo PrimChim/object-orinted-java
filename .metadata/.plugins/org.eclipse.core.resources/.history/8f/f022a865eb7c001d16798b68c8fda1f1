@@ -1,0 +1,9 @@
+package adminModule;
+
+public class ReportNotFound extends RuntimeException {
+
+	public ReportNotFound() {
+		super("Currently, there are reports for this tenant!!");
+	}
+	
+}
