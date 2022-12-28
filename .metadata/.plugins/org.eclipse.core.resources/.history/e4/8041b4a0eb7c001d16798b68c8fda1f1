@@ -1,5 +1,0 @@
-package adminModule;
-
-public class ReportNotFoundException extends Exception {
-
-}

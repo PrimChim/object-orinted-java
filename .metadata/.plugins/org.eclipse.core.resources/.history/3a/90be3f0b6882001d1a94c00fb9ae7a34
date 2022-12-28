@@ -1,0 +1,31 @@
+package workshop;
+
+public class Demo {
+	
+	void run() {
+		while (true) {
+			System.out.println();
+		}
+	}
+	
+	void study(int value) {
+		for (int i = 1; i<value; i++) {
+			System.out.println("Hey");
+		}
+	}
+	
+	int sum(int a, int b) {
+		
+		int sum;
+		sum = a+b;
+		
+		return sum;
+	}
+	
+
+	public static void main(String[] args) {
+		Demo  std = new Demo();
+		std.sum(1,2);
+	}
+
+}
