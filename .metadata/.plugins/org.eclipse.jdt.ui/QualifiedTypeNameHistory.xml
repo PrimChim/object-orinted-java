@@ -6,7 +6,6 @@
     <fullyQualifiedTypeName name="adminModule.LandlordNotFoundException"/>
     <fullyQualifiedTypeName name="adminModule.TenantBillNotFound"/>
     <fullyQualifiedTypeName name="adminModule.TmsUser"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="adminModule.TenantNotFoundException"/>
     <fullyQualifiedTypeName name="adminModule.ReportNotFound"/>
@@ -21,4 +20,6 @@
     <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
