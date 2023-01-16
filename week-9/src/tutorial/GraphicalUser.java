@@ -55,6 +55,12 @@ public class GraphicalUser {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 		
 		JButton btnNewButton = new JButton("Sign Up");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new SignUp();
+				frame.setVisible(false);
+			}
+		});
 		
 		JLabel lblNewLabel_1 = new JLabel("Our Courses");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
