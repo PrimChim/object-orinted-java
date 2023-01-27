@@ -7,10 +7,16 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SignIn {
 
@@ -56,6 +62,8 @@ public class SignIn {
 		textField = new JTextField();
 		textField.setColumns(10);
 		
+		String id = textField.getText();
+		
 		JLabel lblNewLabel_1 = new JLabel("First Name :");
 		
 		JLabel lblNewLabel_2 = new JLabel("Last Name :");
@@ -63,12 +71,35 @@ public class SignIn {
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("New button");
-		
+		String lastName = textField_1.getText();
+
 		JLabel lblNewLabel_3 = new JLabel("ID :");
-		
+	
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
+		
+		String firstName = textField_2.getText();
+		
+		JButton btnNewButton = new JButton("Submit");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				   try{
+					    Class.forName("com.mysql.cj.jdbc.Driver");
+					    Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/signin", 
+					    		"root", 
+					    		"$$$lamjung$$$@@@");
+					    System.out.println("connection successful!!!");
+					    Statement st = (Statement) con.createStatement();
+						
+					    String displayQ = "insert into  login (id, FirstName, LastName)"
+					    		+ "values ("+id+ ","+firstName+","+lastName+")";
+					    st.executeQuery(displayQ);
+
+					   }catch(ClassNotFoundException | SQLException e1){};
+				
+			}
+		});
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)

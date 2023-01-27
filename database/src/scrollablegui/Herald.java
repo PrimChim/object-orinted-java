@@ -9,6 +9,11 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTable;
@@ -22,7 +27,10 @@ public class Herald {
 
 	private JFrame frame;
 	private JTable table;
+	
 
+
+	
 	/**
 	 * Launch the application.
 	 */
@@ -82,9 +90,28 @@ public class Herald {
 		table.setModel(new DefaultTableModel(new Object[]{"ID", "First Name","Last Name"}, 0));
 		
 		// insert into tables
-		DefaultTableModel model = (DefaultTableModel) table.getModel();
-		model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
-		
+		   try{
+			    Class.forName("com.mysql.cj.jdbc.Driver");
+			    Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/signin", 
+			    		"root", 
+			    		"$$$lamjung$$$@@@");
+			    System.out.println("connection successful!!!");
+			    Statement st = (Statement) con.createStatement();
+
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+				
+			    String displayQ = "SELECT * FROM login";
+			    ResultSet res = st.executeQuery(displayQ);
+			    while(res.next()){
+			        String id = res.getString("ID");
+			        String firstName = res.getString("FirstName");
+			        String lastName = res.getString("LastName");
+
+			        model.addRow(new Object[]{id, firstName, lastName});
+
+			    }
+
+			   }catch(ClassNotFoundException | SQLException e){};		
 		table.setToolTipText("");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
