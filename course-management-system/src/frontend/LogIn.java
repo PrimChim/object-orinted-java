@@ -28,6 +28,8 @@ public class LogIn {
 	private JFrame frame;
 	private JTextField userName;
 	private JPasswordField passwordField;
+	@SuppressWarnings("rawtypes")
+	JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -74,11 +76,12 @@ public class LogIn {
 		JLabel userMode = new JLabel("Select User:");
 		userMode.setFont(new Font("Verdana", Font.PLAIN, 12));
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Verdana", Font.PLAIN, 12));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Admin", "Insturctor", "Student"}));
 		
 		JButton LogInButton = new JButton("Log In");
+		LogInButton.setBackground(Color.WHITE);
 		LogInButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{

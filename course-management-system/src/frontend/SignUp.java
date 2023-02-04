@@ -10,7 +10,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.table.DefaultTableModel;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -31,13 +30,11 @@ public class SignUp implements ActionListener{
 	private JTextField uName;
 	private JTextField email;
 	private JTextField phoneno;
-	@SuppressWarnings("rawtypes")
 	private JComboBox<?> comboBox;
-	@SuppressWarnings("rawtypes")
 	private JComboBox<?> comboBox_1;
 	private JPasswordField passwordField;
-	private String pass;
 	private JLabel lblNewLabel_4;
+	private JLabel exist;
 
 	/**
 	 * Launch the application.
@@ -62,6 +59,51 @@ public class SignUp implements ActionListener{
 		initialize();
 	}
 
+	// inserting function
+	
+	private void insertIntoTable() {
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management", 
+			    		"root", 
+			    		"$$$lamjung$$$@@@");
+			System.out.println("connection successful!!!");
+
+			if(comboBox.getSelectedItem()=="Student") {
+				Statement st = (Statement) con.createStatement();
+				String exeQ = "insert into student(username, email,password,phone)"
+						+ "values ('"+uName.getText()
+						+ "','"+email.getText()
+						+"','"+String.valueOf(passwordField.getPassword())
+						+"','"+phoneno.getText()
+						+"');";
+				st.executeUpdate(exeQ);
+				st.close();
+			}else if(comboBox.getSelectedItem()=="Admin") {
+				Statement st = (Statement) con.createStatement();
+				String exeQ = "insert into admin(username, email,password,phone)"
+						+ "values ('"+uName.getText()
+						+ "','"+email.getText()
+						+"','"+String.valueOf(passwordField.getPassword())
+						+"','"+phoneno.getText()
+						+"');";
+				st.executeUpdate(exeQ);
+				st.close();
+			}else {
+				Statement st = (Statement) con.createStatement();
+				String exeQ = "insert into instructor(username, email,password,phone)"
+						+ "values ('"+uName.getText()
+						+ "','"+email.getText()
+						+"','"+String.valueOf(passwordField.getPassword())
+						+"','"+phoneno.getText()
+						+"');";
+				st.executeUpdate(exeQ);
+				st.close();
+			}
+		}catch(ClassNotFoundException | SQLException e1){
+			System.out.println(e1);
+		};
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -111,6 +153,7 @@ public class SignUp implements ActionListener{
 		comboBox_1.setVisible(false);	   
 		
 		JButton SignUp = new JButton("Sign Up");
+		SignUp.setBackground(Color.WHITE);
 		SignUp.setFont(new Font("Verdana", Font.PLAIN, 12));
 		SignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,36 +164,42 @@ public class SignUp implements ActionListener{
 					    		"$$$lamjung$$$@@@");
 					System.out.println("connection successful!!!");
 					
-					if(comboBox.getSelectedItem()=="Student") {
-						Statement st = (Statement) con.createStatement();
-						String exeQ = "insert into student(username, email,password,phone)"
-								+ "values ('"+uName.getText()
-								+ "','"+email.getText()
-								+"','"+String.valueOf(passwordField.getPassword())
-								+"','"+phoneno.getText()
-								+"');";
-						st.executeUpdate(exeQ);
-						st.close();
-					}else if(comboBox.getSelectedItem()=="Admin") {
-						Statement st = (Statement) con.createStatement();
-						String exeQ = "insert into admin(username, email,password,phone)"
-								+ "values ('"+uName.getText()
-								+ "','"+email.getText()
-								+"','"+String.valueOf(passwordField.getPassword())
-								+"','"+phoneno.getText()
-								+"');";
-						st.executeUpdate(exeQ);
-						st.close();
-					}else {
-						Statement st = (Statement) con.createStatement();
-						String exeQ = "insert into instructor(username, email,password,phone)"
-								+ "values ('"+uName.getText()
-								+ "','"+email.getText()
-								+"','"+String.valueOf(passwordField.getPassword())
-								+"','"+phoneno.getText()
-								+"');";
-						st.executeUpdate(exeQ);
-						st.close();
+					// checking if user already exists
+
+					String mode = (String)comboBox.getSelectedItem();
+					if(mode.equals("Admin")) {
+						Statement st1 = (Statement) con.createStatement();
+						String displayQ = "select*from admin where username = '"+uName.getText()+"';";
+						
+						ResultSet rs = st1.executeQuery(displayQ);
+						if(rs.next()) {
+							exist.setVisible(true);
+						}else {
+							exist.setVisible(false);
+							insertIntoTable();
+						}
+					} else if(mode.equals("Student")) {
+						Statement st1 = (Statement) con.createStatement();
+						String displayA = "select*from student where username = '"+uName.getText()+"';";
+						
+						ResultSet rs = st1.executeQuery(displayA);
+						if(rs.next()) {
+							exist.setVisible(true);
+						}else {
+							exist.setVisible(false);
+							insertIntoTable();
+						}
+					} else {
+						Statement st1 = (Statement) con.createStatement();
+						String displayQ = "select*from instructor where username = '"+uName.getText()+"';";
+						
+						ResultSet rs = st1.executeQuery(displayQ);
+						if(rs.next()) {	
+							exist.setVisible(true);
+						}else {
+							exist.setVisible(false);
+							insertIntoTable();
+						}
 					}
 
 				}catch(ClassNotFoundException | SQLException e1){
@@ -160,6 +209,7 @@ public class SignUp implements ActionListener{
 		});
 		
 		JButton LogIn = new JButton("Log In");
+		LogIn.setBackground(Color.ORANGE);
 		LogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new LogIn();
@@ -170,6 +220,11 @@ public class SignUp implements ActionListener{
 		
 		lblNewLabel_4 = new JLabel("Welcome to Sign Up Panel");
 		lblNewLabel_4.setFont(new Font("Verdana", Font.PLAIN, 14));
+		
+		exist = new JLabel("Username exists already");
+		exist.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		exist.setForeground(Color.RED);
+		exist.setVisible(false);
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -194,7 +249,8 @@ public class SignUp implements ActionListener{
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(SignUp, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addGap(18)
-									.addComponent(LogIn, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))))
+									.addComponent(LogIn, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
+								.addComponent(exist, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(87)
 							.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 212, GroupLayout.PREFERRED_SIZE)))
@@ -205,7 +261,9 @@ public class SignUp implements ActionListener{
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel_4)
-					.addPreferredGap(ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+					.addComponent(exist)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewLabel)
 					.addGap(6)
 					.addComponent(uName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -240,13 +298,11 @@ public class SignUp implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		if(e.getSource()==comboBox) {
 			if(comboBox.getSelectedItem()=="Student") {
 				comboBox_1.setVisible(true);
 			}
 			
 		}
-		
 	}
 }
