@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -89,59 +91,20 @@ public class LogIn {
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management", 
 					    		"root", 
 					    		"$$$lamjung$$$@@@");
-					System.out.println("connection successful!!!");
 					
-					if(comboBox.getSelectedItem()=="Student") {
-						Statement st = (Statement) con.createStatement();
-						String displayQ = "select*from student where username = '"+userName.getText()+"';";
-						
-						ResultSet rs = st.executeQuery(displayQ);
-						if(rs.next()) {					
-							if(rs.getString("password").equals(String.valueOf(passwordField.getPassword()))) {
-								new Dashboard();
-								frame.setVisible(false);
-							}else {
-								System.out.println("something wrong");
-							}
+					Statement st = (Statement) con.createStatement();
+					String displayQ = "select*from "+String.valueOf(comboBox.getSelectedItem())+" where username = '"+userName.getText()+"';";
+					ResultSet rs = st.executeQuery(displayQ);
+					if(rs.next()) {					
+						if(rs.getString("password").equals(String.valueOf(passwordField.getPassword()))) {
+							new Dashboard((String)comboBox.getSelectedItem(),userName.getText());
+							frame.setVisible(false);
 						}else {
-							System.out.println("user not found");
+							JOptionPane.showMessageDialog(LogInButton, "Wrong passord!!!");
 						}
-						st.close();	
-					}else if(comboBox.getSelectedItem()=="Admin") {
-						Statement st = (Statement) con.createStatement();
-						String displayQ = "select*from admin where username = '"+userName.getText()+"';";
-						
-						ResultSet rs = st.executeQuery(displayQ);
-						if(rs.next()) {					
-							if(rs.getString("password").equals(String.valueOf(passwordField.getPassword()))) {
-								new Dashboard();
-								frame.setVisible(false);
-							}else {
-								System.out.println("something wrong");
-							}
-						}else {
-							System.out.println("user not found");
-						}
-						st.close();	
-					} else {
-						Statement st = (Statement) con.createStatement();
-						String displayQ = "select*from admin where username = '"+userName.getText()+"';";
-						
-						ResultSet rs = st.executeQuery(displayQ);
-						if(rs.next()) {					
-							if(rs.getString("password").equals(String.valueOf(passwordField.getPassword()))) {
-								new Dashboard();
-								frame.setVisible(false);
-							}else {
-								System.out.println("something wrong");
-							}
-						}else {
-							System.out.println("user not found");
-						}
-						st.close();	
+					}else {
+						JOptionPane.showMessageDialog(LogInButton, "Username not found!!!");
 					}
-
-
 				}catch(ClassNotFoundException | SQLException e1){
 					System.out.println(e1);
 				};

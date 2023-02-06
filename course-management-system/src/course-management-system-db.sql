@@ -1,17 +1,6 @@
 create database course_management;
 
-create table signup(
-username varchar(20) not null,
-email varchar(50) not null,
-password varchar(50) not null,
-phone varchar(10) not null,
-user varchar(10),
-primary key (username,email,phone)
-);
-
 use course_management;
-
-show tables;
 
 create table student(
 student_id int primary key auto_increment,
@@ -43,11 +32,6 @@ create table modules(
 module_id int primary key auto_increment,
 module_name varchar(20) not null
 );
-show tables;
-
-drop table instructor;
-
-select*from admin;
 
 create table instructor_activity(
 instructor_id int,
@@ -62,3 +46,9 @@ module_id int,
 foreign key (student_id) references student(student_id),
 foreign key(module_id) references modules(module_id)
 );
+
+update admin
+set password =  'lamjung'
+where username = 'pritam';
+
+select*from admin;
