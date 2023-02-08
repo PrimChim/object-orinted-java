@@ -163,5 +163,6 @@ public class Add {
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setBounds(100, 100, 300, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 }

@@ -80,7 +80,7 @@ public class LogIn {
 		
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Verdana", Font.PLAIN, 12));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Admin", "Insturctor", "Student"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Admin", "Instructor", "Student"}));
 		
 		JButton LogInButton = new JButton("Log In");
 		LogInButton.setBackground(Color.WHITE);

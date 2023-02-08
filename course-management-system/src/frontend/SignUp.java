@@ -67,7 +67,6 @@ public class SignUp implements ActionListener{
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management", 
 			    		"root", 
 			    		"$$$lamjung$$$@@@");
-			System.out.println("connection successful!!!");
 
 			if(comboBox.getSelectedItem()=="Student") {
 				Statement st = (Statement) con.createStatement();
@@ -79,6 +78,21 @@ public class SignUp implements ActionListener{
 						+"');";
 				st.executeUpdate(exeQ);
 				st.close();
+				
+				Statement st1 = (Statement) con.createStatement();
+				String exeQ1 = "select student_id from student where username='"+uName.getText()+"';";
+				ResultSet rs = st1.executeQuery(exeQ1);
+				rs.next();
+				int id = Integer.valueOf(rs.getString("student_id"));
+				System.out.println(comboBox_1.getSelectedItem());
+				if(comboBox_1.getSelectedItem().equals("BIBM")) {
+					System.out.println(id);
+					exeQ1 = "insert into student_activity values("+id+",1);";
+					st1.executeUpdate(exeQ1);
+				}else if(comboBox_1.getSelectedItem().equals("BIT")) {
+					exeQ1 = "insert into student_activity values("+id+",2);";
+					st1.executeUpdate(exeQ1);
+				}
 			}else if(comboBox.getSelectedItem()=="Admin") {
 				Statement st = (Statement) con.createStatement();
 				String exeQ = "insert into admin(username, email,password,phone)"

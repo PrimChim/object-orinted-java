@@ -31,6 +31,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingConstants;
 
 public class Dashboard {
 
@@ -43,6 +44,7 @@ public class Dashboard {
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 	private JTable table;
+	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -138,24 +140,69 @@ public class Dashboard {
 		CoursesPannel.setBackground(Color.WHITE);
 		rightPanel.add(CoursesPannel, "name_180654390901");
 
-		JLabel crss = new JLabel("Courses");
+		JLabel crss = new JLabel("Modules");
 		crss.setFont(new Font("Verdana", Font.PLAIN, 12));
 
 		JSeparator separator_2_1 = new JSeparator();
+		
+		JButton btnAddModule = new JButton("Add Module");
+		btnAddModule.setFont(new Font("Verdana", Font.PLAIN, 9));
+		btnAddModule.setBackground(Color.WHITE);
+		
+		JButton insertInstructors_1_1 = new JButton("Edit Module");
+		insertInstructors_1_1.setFont(new Font("Verdana", Font.PLAIN, 9));
+		insertInstructors_1_1.setBackground(Color.WHITE);
+		
+		JButton insertInstructors_2_1 = new JButton("Delete Module");
+		insertInstructors_2_1.setFont(new Font("Verdana", Font.PLAIN, 9));
+		insertInstructors_2_1.setBackground(Color.WHITE);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
 		GroupLayout gl_CoursesPannel = new GroupLayout(CoursesPannel);
-		gl_CoursesPannel.setHorizontalGroup(gl_CoursesPannel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_CoursesPannel.createSequentialGroup().addContainerGap()
-						.addGroup(gl_CoursesPannel.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(crss, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 61,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(separator_2_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 355,
-										Short.MAX_VALUE))
-						.addContainerGap(20, Short.MAX_VALUE)));
-		gl_CoursesPannel.setVerticalGroup(gl_CoursesPannel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_CoursesPannel.createSequentialGroup().addContainerGap().addComponent(crss)
-						.addPreferredGap(ComponentPlacement.RELATED).addComponent(separator_2_1,
-								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(327, Short.MAX_VALUE)));
+		gl_CoursesPannel.setHorizontalGroup(
+			gl_CoursesPannel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_CoursesPannel.createSequentialGroup()
+					.addGroup(gl_CoursesPannel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_CoursesPannel.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_CoursesPannel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_CoursesPannel.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(crss, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
+									.addComponent(separator_2_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+								.addGroup(gl_CoursesPannel.createSequentialGroup()
+									.addComponent(btnAddModule, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+									.addGap(6)
+									.addComponent(insertInstructors_1_1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
+									.addGap(6)
+									.addComponent(insertInstructors_2_1, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_CoursesPannel.createSequentialGroup()
+							.addGap(14)
+							.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		gl_CoursesPannel.setVerticalGroup(
+			gl_CoursesPannel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_CoursesPannel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(crss)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_CoursesPannel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_CoursesPannel.createSequentialGroup()
+							.addGap(2)
+							.addComponent(btnAddModule, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE))
+						.addComponent(insertInstructors_1_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(insertInstructors_2_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addGap(12)
+					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		
+		table_1 = new JTable();
+		table_1.setModel(new DefaultTableModel(new Object[] { "Module ID", "Module Name"}, 0));
+		scrollPane_1.setViewportView(table_1);
 		CoursesPannel.setLayout(gl_CoursesPannel);
 
 		JPanel InstructorsPannel = new JPanel();
@@ -183,6 +230,11 @@ public class Dashboard {
 		insertInstructors_1.setBackground(Color.WHITE);
 		
 		JButton insertInstructors_2 = new JButton("Delete Instructor");
+		insertInstructors_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		insertInstructors_2.setFont(new Font("Verdana", Font.PLAIN, 9));
 		insertInstructors_2.setBackground(Color.WHITE);
 		GroupLayout gl_InstructorsPannel = new GroupLayout(InstructorsPannel);
@@ -278,8 +330,7 @@ public class Dashboard {
 			con.close();
 		} catch (ClassNotFoundException | SQLException e1) {
 			System.out.println(e1);
-		}
-		;
+		};
 
 		JLabel Username = new JLabel("Username");
 		Username.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -402,91 +453,102 @@ public class Dashboard {
 		});
 		ChangeDetails_1.setBackground(Color.WHITE);
 		ChangeDetails_1.setFont(new Font("Verdana", Font.PLAIN, 11));
+		
+		JButton btnNewButton_7 = new JButton("Generate Student Result");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Result();
+			}
+		});
+		btnNewButton_7.setHorizontalAlignment(SwingConstants.LEFT);
+		btnNewButton_7.setBackground(Color.WHITE);
+		btnNewButton_7.setForeground(Color.BLUE);
+		btnNewButton_7.setBorderPainted(false);
+		btnNewButton_7.setBackground(new Color(255, 255, 255));
+		btnNewButton_7.setFont(new Font("Verdana", Font.PLAIN, 12));
 		GroupLayout gl_SettingsPannel = new GroupLayout(SettingsPannel);
-		gl_SettingsPannel.setHorizontalGroup(gl_SettingsPannel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_SettingsPannel.createSequentialGroup().addContainerGap().addGroup(gl_SettingsPannel
-						.createParallelGroup(Alignment.LEADING)
-						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+		gl_SettingsPannel.setHorizontalGroup(
+			gl_SettingsPannel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SettingsPannel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.LEADING)
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
 						.addComponent(Stngs, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
 						.addComponent(GeneralInfo, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
 						.addComponent(ChangeDetails)
 						.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(separator_1_1, Alignment.LEADING).addComponent(GeneralInfo_1,
-										Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
-						.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.TRAILING, false)
-								.addGroup(Alignment.LEADING, gl_SettingsPannel.createSequentialGroup()
-										.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 87,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(passwordField))
-								.addGroup(
-										Alignment.LEADING,
-										gl_SettingsPannel.createSequentialGroup()
-												.addComponent(lblPhoneNo, GroupLayout.PREFERRED_SIZE, 72,
-														GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED).addComponent(textField_1))
-								.addGroup(Alignment.LEADING,
-										gl_SettingsPannel.createSequentialGroup()
-												.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 72,
-														GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED).addComponent(textField))
-								.addGroup(Alignment.LEADING, gl_SettingsPannel.createSequentialGroup()
-										.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.TRAILING, false)
-												.addComponent(Username, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-														GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(separator_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-														72, Short.MAX_VALUE))
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(txtPritam,
-												GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(separator_1_1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(GeneralInfo_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+						.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(gl_SettingsPannel.createSequentialGroup()
+								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(passwordField))
+							.addGroup(gl_SettingsPannel.createSequentialGroup()
+								.addComponent(lblPhoneNo, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(textField_1))
+							.addGroup(gl_SettingsPannel.createSequentialGroup()
+								.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(textField))
+							.addGroup(gl_SettingsPannel.createSequentialGroup()
+								.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(Username, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(separator_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(txtPritam, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(ChangeDetails_1)
 						.addGroup(gl_SettingsPannel.createSequentialGroup()
-								.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 87,
-										GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED).addComponent(passwordField_1,
-										GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
-						.addComponent(ChangeDetails_1)).addContainerGap()));
-		gl_SettingsPannel
-				.setVerticalGroup(gl_SettingsPannel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_SettingsPannel.createSequentialGroup().addGap(14).addComponent(Stngs)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(GeneralInfo)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 4, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
-										.addComponent(Username).addComponent(txtPritam, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 15,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblPhoneNo, GroupLayout.PREFERRED_SIZE, 15,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(ChangeDetails)
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addComponent(GeneralInfo_1, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(separator_1_1, GroupLayout.PREFERRED_SIZE, 4, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblNewLabel_1)
-										.addComponent(passwordField, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 15,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(passwordField_1, GroupLayout.PREFERRED_SIZE, 21,
-												GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(ChangeDetails_1,
-										GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(44, Short.MAX_VALUE)));
+							.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(passwordField_1, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnNewButton_7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		gl_SettingsPannel.setVerticalGroup(
+			gl_SettingsPannel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SettingsPannel.createSequentialGroup()
+					.addGap(14)
+					.addComponent(Stngs)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(GeneralInfo)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 4, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(Username)
+						.addComponent(txtPritam, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblPhoneNo, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(ChangeDetails)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(GeneralInfo_1, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(separator_1_1, GroupLayout.PREFERRED_SIZE, 4, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_1)
+						.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(passwordField_1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(ChangeDetails_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnNewButton_7)
+					.addContainerGap(13, Short.MAX_VALUE))
+		);
 		SettingsPannel.setLayout(gl_SettingsPannel);
 
 		JButton btnNewButton = new JButton("Dashboard");
@@ -503,11 +565,34 @@ public class Dashboard {
 		JLabel lblNewLabel = new JLabel("Course Management System");
 		lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
 
-		JButton btnNewButton_1 = new JButton("Courses");
+		JButton btnNewButton_1 = new JButton("Modules");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl_rightPanel.show(rightPanel, "name_180654390901");
+				
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management",
+							"root", "$$$lamjung$$$@@@");
+					System.out.println("connection successful!!!");
+					Statement st = (Statement) con.createStatement();
 
+					DefaultTableModel model = (DefaultTableModel) table_1.getModel();
+
+					String displayQ = "SELECT * FROM modules";
+					ResultSet res = st.executeQuery(displayQ);
+					while (res.next()) {
+						String module_id = res.getString("module_id");
+						String module_name = res.getString("module_name");
+
+						model.addRow(new Object[] { module_id, module_name});
+
+					}
+
+				} catch (ClassNotFoundException | SQLException e1) {
+					System.out.println(e1);
+				}
+				;
 			}
 		});
 		btnNewButton_1.setIcon(new ImageIcon(
