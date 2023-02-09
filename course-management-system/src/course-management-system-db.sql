@@ -49,8 +49,6 @@ update admin
 set password =  'lamjung'
 where username = 'pritam';
 
-
-
 insert into instructor (username,email,password,phone)
 values('Ashish Aacharya', 'ashishacharya8@gmail.com', 'ashish' , '9876543210'),
 ('Rohit', 'rohit@gmail.com','rohit','9865321470');
@@ -73,8 +71,10 @@ values('Pritam G', 'pritam@gmail.com' ,'pritam','9866544445'),
 ('Susma G', 'susma@gmail.com' ,'susma','9845126307');
 
 insert into instructor( username, email,password, phone)
-values('Sangay Lama', 'sangaylama@gmail.com' ,'sangay','9866544445'),
-('Rohit Parajuli', 'rohitparajuli@gmail.com' ,'rohit','9876543210'); 
+values('Rukesh Shrestha', 'rukesh@gmail.com' ,'rukesh','9815426307'),
+('Subash Bista', 'subash@gmail.com' ,'subash','9854126307'),
+('Jenny', 'jenny@gmail.com' ,'jenny','9748152603'),
+('Anmol Adhikari', 'anmol@gmail.com' ,'anmol','9784516230'); 
 
 select student.student_id,username,email,phone,modules.module_name,courses.course_name
 from
@@ -87,10 +87,10 @@ on courses.course_id = modules.course_id
 where student.username = 'Pritam G';
 
 create table modules(
-course_id int primary key auto_increment,
-course_name varchar(20),
-module_id int,
-foreign key(module_id) references modules(module_id)
+module_id int primary key auto_increment,
+module_name varchar(20),
+course_id int,
+foreign key(course_id) references courses(course_id)
 );
 
 select *from student_activity;
@@ -98,7 +98,7 @@ select *from student_activity;
 alter table courses
 rename column module_name to course_name;
 
-insert into modules(course_name, module_id)
+insert into modules(module_name, course_id)
 values('Fundamentals of Programming', 2),
 ('Computational Mathematics',2),
 ('Academic Skills and Team Based Learning',2),
@@ -116,3 +116,56 @@ values('Fundamentals of Programming', 2),
 ('Project and Professionalism',2),
 ('Artificial Intelligence and Machine Learning',2),
 ('Complex Systems',2);
+
+alter table modules
+add level int not null;
+
+update modules
+set level = 4
+where module_id <= 6;
+
+select*from instructor_activity;
+
+insert into instructor( username, email,password, phone)
+values('Simon Giri', 'simon@gmail.com' ,'simon','9748150263');
+
+select modules.module_id, modules.module_name, instructor_id
+from modules
+inner join student 
+on student.level = modules.level
+inner join instructor_activity as ins
+on modules.module_id = ins.module_id
+where student.username = 'Pritam G';
+
+insert into instructor_activity
+values(1,1),
+(1,2),
+(3,3),
+(6,4),
+(2,5),
+(8,6),
+(8,7),
+(4,8),
+(6,9),
+(5,10),
+(9,11),
+(9,12),
+(8,13),
+(1,14),
+(3,15),
+(9,16),
+(7,17);
+
+ select * from modules
+ inner join instructor_activity as ins
+ on modules.module_id = ins.module_id;
+ 
+ select modules.module_id, modules.module_name, instructor_id
+ from modules
+ inner join student
+ on student.level = modules.level
+ inner join instructor_activity as ins
+ on modules.module_id = ins.module_id
+ where student.username = 'Pritam G';
+ select *from student;
+ select count(course_id) from courses;

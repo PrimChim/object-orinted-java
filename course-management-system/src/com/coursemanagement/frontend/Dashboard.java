@@ -1,4 +1,4 @@
-package frontend;
+package com.coursemanagement.frontend;
 
 import java.awt.EventQueue;
 
@@ -32,6 +32,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 public class Dashboard {
 
@@ -45,6 +46,11 @@ public class Dashboard {
 	private JPasswordField passwordField_1;
 	private JTable table;
 	private JTable table_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTable table_2;
 
 	/**
 	 * Launch the application.
@@ -104,36 +110,179 @@ public class Dashboard {
 		JPanel panel_1 = new JPanel();
 
 		JPanel panel_2 = new JPanel();
+		
+		JPanel panel_1_1 = new JPanel();
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("MODULES");
+		lblNewLabel_2_1_1.setFont(new Font("Verdana", Font.PLAIN, 14));
+		
+		textField_5 = new JTextField();
+		textField_5.setFont(new Font("Verdana", Font.PLAIN, 25));
+		textField_5.setEditable(false);
+		textField_5.setColumns(10);
+		textField_5.setBackground(SystemColor.menu);
+		GroupLayout gl_panel_1_1 = new GroupLayout(panel_1_1);
+		gl_panel_1_1.setHorizontalGroup(
+			gl_panel_1_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1_1.createSequentialGroup()
+					.addGroup(gl_panel_1_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1_1.createSequentialGroup()
+							.addGap(50)
+							.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1_1.createSequentialGroup()
+							.addGap(43)
+							.addComponent(lblNewLabel_2_1_1)))
+					.addContainerGap(43, Short.MAX_VALUE))
+		);
+		gl_panel_1_1.setVerticalGroup(
+			gl_panel_1_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_1_1.createSequentialGroup()
+					.addContainerGap(29, Short.MAX_VALUE)
+					.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_2_1_1, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		panel_1_1.setLayout(gl_panel_1_1);
 		GroupLayout gl_DashboardPannel = new GroupLayout(DashboardPannel);
-		gl_DashboardPannel.setHorizontalGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_DashboardPannel.createSequentialGroup().addGroup(gl_DashboardPannel
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_DashboardPannel.createSequentialGroup().addContainerGap()
-								.addGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
-										.addComponent(dsh, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-										.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 355,
-												GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_DashboardPannel.createSequentialGroup().addGap(28).addGroup(gl_DashboardPannel
-								.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
+		gl_DashboardPannel.setHorizontalGroup(
+			gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_DashboardPannel.createSequentialGroup()
+					.addGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_DashboardPannel.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
+								.addComponent(dsh, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+								.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_DashboardPannel.createSequentialGroup()
+							.addGap(28)
+							.addGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_DashboardPannel.createSequentialGroup()
-										.addComponent(panel, GroupLayout.PREFERRED_SIZE, 157,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(panel_1,
-												GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)))))
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		gl_DashboardPannel.setVerticalGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_DashboardPannel.createSequentialGroup().addContainerGap().addComponent(dsh)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(26)
-						.addGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(panel_1_1, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_DashboardPannel.createSequentialGroup()
+									.addComponent(panel, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)))))
+					.addContainerGap(27, Short.MAX_VALUE))
+		);
+		gl_DashboardPannel.setVerticalGroup(
+			gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_DashboardPannel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(dsh)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_DashboardPannel.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(53, Short.MAX_VALUE)));
+						.addComponent(panel_1_1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(54, Short.MAX_VALUE))
+		);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("STUDENTS");
+		lblNewLabel_2_2.setFont(new Font("Verdana", Font.PLAIN, 14));
+		
+		textField_4 = new JTextField();
+		
+		textField_4.setFont(new Font("Verdana", Font.PLAIN, 25));
+		textField_4.setEditable(false);
+		textField_4.setColumns(10);
+		textField_4.setBackground(SystemColor.menu);
+		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(39)
+							.addComponent(lblNewLabel_2_2))
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(50)
+							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(40, Short.MAX_VALUE))
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addContainerGap(31, Short.MAX_VALUE)
+					.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+					.addGap(4)
+					.addComponent(lblNewLabel_2_2, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		panel_2.setLayout(gl_panel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("INSTRUCTORS");
+		lblNewLabel_2_1.setFont(new Font("Verdana", Font.PLAIN, 14));
+		
+		textField_3 = new JTextField();
+		
+		textField_3.setFont(new Font("Verdana", Font.PLAIN, 25));
+		textField_3.setEditable(false);
+		textField_3.setColumns(10);
+		textField_3.setBackground(SystemColor.menu);
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(25)
+							.addComponent(lblNewLabel_2_1))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(50)
+							.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(26, Short.MAX_VALUE))
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap(29, Short.MAX_VALUE)
+					.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		panel_1.setLayout(gl_panel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("COURSES");
+		lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 14));
+		
+		textField_2 = new JTextField();
+		textField_2.setBackground(SystemColor.menu);
+		
+		textField_2.setFont(new Font("Verdana", Font.PLAIN, 25));
+		textField_2.setEditable(false);
+		textField_2.setColumns(10);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(43)
+							.addComponent(lblNewLabel_2))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(50)
+							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(44, Short.MAX_VALUE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap(31, Short.MAX_VALUE)
+					.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+					.addGap(4)
+					.addComponent(lblNewLabel_2)
+					.addContainerGap())
+		);
+		panel.setLayout(gl_panel);
 		DashboardPannel.setLayout(gl_DashboardPannel);
 
 		JPanel CoursesPannel = new JPanel();
@@ -201,7 +350,19 @@ public class Dashboard {
 		);
 		
 		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(new Object[] { "Module ID", "Module Name"}, 0));
+		table_1.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Instructor ID", "Module ID", "Module Name"
+			}
+		));
+		table_1.getColumnModel().getColumn(0).setPreferredWidth(67);
+		table_1.getColumnModel().getColumn(0).setMinWidth(67);
+		table_1.getColumnModel().getColumn(0).setMaxWidth(67);
+		table_1.getColumnModel().getColumn(1).setPreferredWidth(58);
+		table_1.getColumnModel().getColumn(1).setMinWidth(53);
+		table_1.getColumnModel().getColumn(1).setMaxWidth(58);
 		scrollPane_1.setViewportView(table_1);
 		CoursesPannel.setLayout(gl_CoursesPannel);
 
@@ -225,10 +386,6 @@ public class Dashboard {
 		insertInstructors.setBackground(Color.WHITE);
 		insertInstructors.setFont(new Font("Verdana", Font.PLAIN, 9));
 		
-		JButton insertInstructors_1 = new JButton("Edit Instructor");
-		insertInstructors_1.setFont(new Font("Verdana", Font.PLAIN, 9));
-		insertInstructors_1.setBackground(Color.WHITE);
-		
 		JButton insertInstructors_2 = new JButton("Delete Instructor");
 		insertInstructors_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -243,13 +400,11 @@ public class Dashboard {
 				.addGroup(gl_InstructorsPannel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_InstructorsPannel.createParallelGroup(Alignment.LEADING)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
 						.addComponent(ttr, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_InstructorsPannel.createSequentialGroup()
 							.addComponent(insertInstructors)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(insertInstructors_1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGap(121)
 							.addComponent(insertInstructors_2, 0, 0, Short.MAX_VALUE))
 						.addComponent(separator_2_1_1, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
@@ -264,10 +419,9 @@ public class Dashboard {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_InstructorsPannel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(insertInstructors)
-						.addComponent(insertInstructors_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 						.addComponent(insertInstructors_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 
@@ -287,14 +441,74 @@ public class Dashboard {
 
 		JLabel stdnt = new JLabel("Students");
 		stdnt.setFont(new Font("Verdana", Font.PLAIN, 12));
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		
+		JSeparator separator_2_1_1_1 = new JSeparator();
+		
+		JButton btnAddStudent = new JButton("Add Student");
+		btnAddStudent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Add("Student");
+			}
+		});
+		btnAddStudent.setFont(new Font("Verdana", Font.PLAIN, 9));
+		btnAddStudent.setBackground(Color.WHITE);
+		
+		JButton insertInstructors_2_2 = new JButton("Delete Student");
+		insertInstructors_2_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Delete("Student");
+			}
+		});
+		insertInstructors_2_2.setFont(new Font("Verdana", Font.PLAIN, 9));
+		insertInstructors_2_2.setBackground(Color.WHITE);
 		GroupLayout gl_StudentsPannel = new GroupLayout(StudentsPannel);
-		gl_StudentsPannel.setHorizontalGroup(gl_StudentsPannel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_StudentsPannel.createSequentialGroup().addContainerGap()
+		gl_StudentsPannel.setHorizontalGroup(
+			gl_StudentsPannel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_StudentsPannel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_StudentsPannel.createParallelGroup(Alignment.LEADING)
 						.addComponent(stdnt, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(300, Short.MAX_VALUE)));
-		gl_StudentsPannel.setVerticalGroup(gl_StudentsPannel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_StudentsPannel.createSequentialGroup().addContainerGap().addComponent(stdnt)
-						.addContainerGap(335, Short.MAX_VALUE)));
+						.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 372, GroupLayout.PREFERRED_SIZE)
+						.addComponent(separator_2_1_1_1, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(gl_StudentsPannel.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(btnAddStudent, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+					.addGap(121)
+					.addComponent(insertInstructors_2_2, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		gl_StudentsPannel.setVerticalGroup(
+			gl_StudentsPannel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_StudentsPannel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(stdnt)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(separator_2_1_1_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_StudentsPannel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_StudentsPannel.createSequentialGroup()
+							.addGap(2)
+							.addComponent(btnAddStudent, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE))
+						.addComponent(insertInstructors_2_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 283, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		
+		table_2 = new JTable();
+		table_2.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"ID", "Student", "Email"
+			}
+		));
+		table_2.getColumnModel().getColumn(0).setPreferredWidth(21);
+		table_2.getColumnModel().getColumn(0).setMaxWidth(21);
+		scrollPane_2.setViewportView(table_2);
 		StudentsPannel.setLayout(gl_StudentsPannel);
 
 		JPanel SettingsPannel = new JPanel();
@@ -457,7 +671,12 @@ public class Dashboard {
 		JButton btnNewButton_7 = new JButton("Generate Student Result");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Result();
+				if(usermode.equals("Instructor")) {
+					new Result();
+				}else {
+					JOptionPane.showMessageDialog(btnNewButton_7, "Access denied!!!");
+				}
+				
 			}
 		});
 		btnNewButton_7.setHorizontalAlignment(SwingConstants.LEFT);
@@ -466,13 +685,20 @@ public class Dashboard {
 		btnNewButton_7.setBorderPainted(false);
 		btnNewButton_7.setBackground(new Color(255, 255, 255));
 		btnNewButton_7.setFont(new Font("Verdana", Font.PLAIN, 12));
+		
+		JButton btnNewButton_7_1 = new JButton("View Your Result");
+		btnNewButton_7_1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnNewButton_7_1.setForeground(Color.BLUE);
+		btnNewButton_7_1.setFont(new Font("Verdana", Font.PLAIN, 12));
+		btnNewButton_7_1.setBorderPainted(false);
+		btnNewButton_7_1.setBackground(Color.WHITE);
 		GroupLayout gl_SettingsPannel = new GroupLayout(SettingsPannel);
 		gl_SettingsPannel.setHorizontalGroup(
 			gl_SettingsPannel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_SettingsPannel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.LEADING)
-						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
 						.addComponent(Stngs, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
 						.addComponent(GeneralInfo, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
 						.addComponent(ChangeDetails)
@@ -503,7 +729,11 @@ public class Dashboard {
 							.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(passwordField_1, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
-						.addComponent(btnNewButton_7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+						.addGroup(Alignment.TRAILING, gl_SettingsPannel.createSequentialGroup()
+							.addComponent(btnNewButton_7, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnNewButton_7_1)
+							.addGap(29)))
 					.addContainerGap())
 		);
 		gl_SettingsPannel.setVerticalGroup(
@@ -546,8 +776,10 @@ public class Dashboard {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(ChangeDetails_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_7)
-					.addContainerGap(13, Short.MAX_VALUE))
+					.addGroup(gl_SettingsPannel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton_7)
+						.addComponent(btnNewButton_7_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(14, Short.MAX_VALUE))
 		);
 		SettingsPannel.setLayout(gl_SettingsPannel);
 
@@ -555,6 +787,42 @@ public class Dashboard {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl_rightPanel.show(rightPanel, "name_162405953000");
+				try{
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management", 
+					    		"root", 
+					    		"$$$lamjung$$$@@@");
+					
+					Statement st = (Statement) con.createStatement();
+					String displayQ = "select count(course_id) from courses;";
+					ResultSet rs = st.executeQuery(displayQ);
+					if(rs.next()) {
+						textField_2.setText(rs.getString("count(course_id)"));
+					}
+					
+					displayQ = "select count(username) from instructor;";
+					rs = st.executeQuery(displayQ);
+					if(rs.next()) {
+						textField_3.setText(rs.getString("count(username)"));
+					}
+					
+					displayQ = "select count(username) from student;";
+					rs = st.executeQuery(displayQ);
+					if(rs.next()) {
+						textField_4.setText(rs.getString("count(username)"));
+					}
+					
+					displayQ = "select count(module_id) from modules;";
+					rs = st.executeQuery(displayQ);
+					if(rs.next()) {
+						textField_5.setText(rs.getString("count(module_id)"));
+					}
+					
+					
+				}catch(ClassNotFoundException | SQLException e1){
+					System.out.println(e1);
+				};
+				
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(
@@ -574,20 +842,34 @@ public class Dashboard {
 					Class.forName("com.mysql.cj.jdbc.Driver");
 					Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management",
 							"root", "$$$lamjung$$$@@@");
-					System.out.println("connection successful!!!");
-					Statement st = (Statement) con.createStatement();
 
 					DefaultTableModel model = (DefaultTableModel) table_1.getModel();
+					
+					String displayQ = "";
+					if(usermode.equals("Admin") || usermode.equals("Instructor")) {
+						displayQ = "select * from modules"
+								+ " inner join instructor_activity as ins"
+								+ " on modules.module_id = ins.module_id;";
+					}else if(usermode.equals("Student")){
+						displayQ = "select modules.module_id, modules.module_name, instructor_id"
+								+ " from modules"
+								+ " inner join student"
+								+ " on student.level = modules.level"
+								+" inner join instructor_activity as ins"
+								+" on modules.module_id = ins.module_id"
+								+ " where student.username = '"+uName+"'";
+					}
 
-					String displayQ = "SELECT * FROM modules";
-					ResultSet res = st.executeQuery(displayQ);
+					PreparedStatement ps = con.prepareStatement(displayQ);
+					ResultSet res = ps.executeQuery(displayQ);
 					while (res.next()) {
+						String instructor_id = res.getString("instructor_id");
 						String module_id = res.getString("module_id");
 						String module_name = res.getString("module_name");
 
-						model.addRow(new Object[] { module_id, module_name});
-
+						model.addRow(new Object[] { instructor_id,module_id, module_name});
 					}
+					ps.close();
 
 				} catch (ClassNotFoundException | SQLException e1) {
 					System.out.println(e1);
@@ -609,7 +891,6 @@ public class Dashboard {
 					Class.forName("com.mysql.cj.jdbc.Driver");
 					Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management",
 							"root", "$$$lamjung$$$@@@");
-					System.out.println("connection successful!!!");
 					Statement st = (Statement) con.createStatement();
 
 					DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -640,6 +921,30 @@ public class Dashboard {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl_rightPanel.show(rightPanel, "name_194332880800");
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/course_management",
+							"root", "$$$lamjung$$$@@@");
+
+					DefaultTableModel model_2 = (DefaultTableModel) table_2.getModel();
+
+					String displayQ = "select * from student";
+
+					PreparedStatement ps = con.prepareStatement(displayQ);
+					ResultSet res = ps.executeQuery(displayQ);
+					while (res.next()) {
+						String id = res.getString("student_id");
+						String name = res.getString("username");
+						String email = res.getString("email");
+
+						model_2.addRow(new Object[] { id,name, email});
+					}
+					ps.close();
+
+				} catch (ClassNotFoundException | SQLException e1) {
+					System.out.println(e1);
+				}
+				;
 			}
 		});
 		btnNewButton_3.setIcon(new ImageIcon(
@@ -722,7 +1027,7 @@ public class Dashboard {
 						.addContainerGap(28, Short.MAX_VALUE)));
 		sidePanel.setLayout(gl_sidePanel);
 
-		frame.setBounds(100, 100, 600, 400);
+		frame.setBounds(100, 100, 607, 401);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}

@@ -1,4 +1,4 @@
-package frontend;
+package com.coursemanagement.frontend;
 
 import java.awt.EventQueue;
 
@@ -32,6 +32,7 @@ public class SignUp implements ActionListener{
 	private JTextField phoneno;
 	private JComboBox<?> comboBox;
 	private JComboBox<?> comboBox_1;
+	private JComboBox<?> comboBox_2;
 	private JPasswordField passwordField;
 	private JLabel lblNewLabel_4;
 	private JLabel exist;
@@ -69,13 +70,22 @@ public class SignUp implements ActionListener{
 			    		"$$$lamjung$$$@@@");
 
 			if(comboBox.getSelectedItem()=="Student") {
+				int a = 0;
+				if(comboBox_2.getSelectedItem().equals("Level 4")) {
+					a = 4;
+				}else if(comboBox_2.getSelectedItem().equals("Level 5")) {
+					a = 5;
+				}else {
+					a = 6;
+				}
 				Statement st = (Statement) con.createStatement();
-				String exeQ = "insert into student(username, email,password,phone)"
+				String exeQ = "insert into student(username, email,password,phone,level)"
 						+ "values ('"+uName.getText()
 						+ "','"+email.getText()
 						+"','"+String.valueOf(passwordField.getPassword())
 						+"','"+phoneno.getText()
-						+"');";
+						+"',"+a
+						+");";
 				st.executeUpdate(exeQ);
 				st.close();
 				
@@ -121,7 +131,7 @@ public class SignUp implements ActionListener{
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
@@ -240,6 +250,11 @@ public class SignUp implements ActionListener{
 		exist.setForeground(Color.RED);
 		exist.setVisible(false);
 		
+		comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Level 4", "Level 5", "Level 6"}));
+		comboBox_2.setFont(new Font("Verdana", Font.PLAIN, 12));
+		comboBox_2.setVisible(false);
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -264,7 +279,8 @@ public class SignUp implements ActionListener{
 									.addComponent(SignUp, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 									.addGap(18)
 									.addComponent(LogIn, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-								.addComponent(exist, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(exist, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
+								.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(87)
 							.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 212, GroupLayout.PREFERRED_SIZE)))
@@ -297,7 +313,9 @@ public class SignUp implements ActionListener{
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(52)
+					.addGap(18)
+					.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+					.addGap(12)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(LogIn)
 						.addComponent(SignUp))
@@ -315,6 +333,10 @@ public class SignUp implements ActionListener{
 		if(e.getSource()==comboBox) {
 			if(comboBox.getSelectedItem()=="Student") {
 				comboBox_1.setVisible(true);
+				comboBox_2.setVisible(true);
+			}else {
+				comboBox_1.setVisible(false);
+				comboBox_2.setVisible(false);
 			}
 			
 		}

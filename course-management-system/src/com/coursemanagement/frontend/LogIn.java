@@ -1,4 +1,4 @@
-package frontend;
+package com.coursemanagement.frontend;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -59,6 +59,7 @@ public class LogIn {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));

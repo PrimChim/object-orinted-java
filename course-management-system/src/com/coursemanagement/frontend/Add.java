@@ -1,4 +1,4 @@
-package frontend;
+package com.coursemanagement.frontend;
 
 import java.awt.EventQueue;
 
