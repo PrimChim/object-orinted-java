@@ -8,6 +8,9 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="override"/>
+			<item value="frame1"/>
+			<item value="lblNewLabel_3"/>
 			<item value="connection successful"/>
 			<item value="combobox"/>
 			<item value="table"/>
@@ -20,11 +23,9 @@
 			<item value="card"/>
 			<item value="pass"/>
 			<item value="something"/>
-			<item value="nothing"/>
-			<item value="system"/>
-			<item value="main"/>
 		</list>
 		<list key="replacehistory">
+			<item value="frame"/>
 			<item value="enqueue"/>
 		</list>
 	</section>

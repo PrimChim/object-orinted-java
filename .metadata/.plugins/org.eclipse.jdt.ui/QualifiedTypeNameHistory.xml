@@ -45,7 +45,16 @@
     <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
     <fullyQualifiedTypeName name="javax.swing.JButton"/>
     <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="org.apache.spark.api.java.function.FlatMapFunction"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.apache.spark.SparkConf"/>
+    <fullyQualifiedTypeName name="org.apache.spark.api.java.JavaSparkContext"/>
+    <fullyQualifiedTypeName name="org.apache.spark.api.java.JavaRDD"/>
+    <fullyQualifiedTypeName name="scala.Tuple2"/>
+    <fullyQualifiedTypeName name="org.apache.spark.api.java.JavaPairRDD"/>
+    <fullyQualifiedTypeName name="scala.Function2"/>
+    <fullyQualifiedTypeName name="org.apache.spark.api.java.function.Function2"/>
+    <fullyQualifiedTypeName name="org.apache.spark.api.java.function.PairFunction"/>
 </qualifiedTypeNameHistroy>

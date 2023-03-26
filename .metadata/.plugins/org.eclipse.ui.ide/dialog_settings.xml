@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.m2e.core.wizards.Maven2ProjectWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>
 	<section name="CleanDialogSettings">
@@ -22,6 +23,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\ACER NITRP-5\Desktop\Herald college\fourth-sem\distributed-system\w-4\akka-hello(Eclipse)-20230319T042726Z-001\akka-hello(Eclipse)"/>
+			<item value="C:\Users\ACER NITRP-5\Desktop\Herald college\fourth-sem\distributed-system\w-3\akka\akka-example"/>
+			<item value="C:\Users\ACER NITRP-5\Desktop\Herald college\fourth-sem\distributed-system\w-3\akkaexampleEclipse_025bdc82-2285-4095-84c5-39fafb19e595_89727_\akka-example"/>
+			<item value="C:\Users\ACER NITRP-5\Desktop\Herald college\fourth-sem\distributed-system\w-3\akkaexampleEclipse_025bdc82-2285-4095-84c5-39fafb19e595_89727_"/>
+			<item value="C:\Users\ACER NITRP-5\Desktop\Herald college\fourth-sem\distributed-system\w-3\akka-example"/>
 			<item value="C:\Users\ACER NITRP-5\Downloads\adminModule"/>
 		</list>
 	</section>

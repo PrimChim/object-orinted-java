@@ -86,7 +86,7 @@ public class Delete {
 					Statement st = (Statement) con.createStatement();
 					
 					String exeQ = "delete from "+usermode+
-							"where username ='"+Username.getText()+"';";
+							" where username ='"+Username.getText()+"';";
 					st.executeUpdate(exeQ);
 					st.close();
 					

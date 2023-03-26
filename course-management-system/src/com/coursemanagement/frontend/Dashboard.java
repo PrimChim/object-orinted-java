@@ -295,6 +295,11 @@ public class Dashboard {
 		JSeparator separator_2_1 = new JSeparator();
 		
 		JButton btnAddModule = new JButton("Add Module");
+		btnAddModule.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnAddModule.setFont(new Font("Verdana", Font.PLAIN, 9));
 		btnAddModule.setBackground(Color.WHITE);
 		
@@ -380,7 +385,12 @@ public class Dashboard {
 		JButton insertInstructors = new JButton("Add Instructor");
 		insertInstructors.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Add("Admin");
+				if(usermode.equals("Admin")) {
+					new Add("Instructor");
+				}else {
+					JOptionPane.showMessageDialog(insertInstructors, "Access denied!!!");
+				}
+				
 			}
 		});
 		insertInstructors.setBackground(Color.WHITE);
@@ -449,7 +459,12 @@ public class Dashboard {
 		JButton btnAddStudent = new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Add("Student");
+				if(usermode.equals("Admin")) {
+					new Add("Student");
+				}else {
+					JOptionPane.showMessageDialog(btnAddStudent, "Access Denied!!!");
+				}
+				
 			}
 		});
 		btnAddStudent.setFont(new Font("Verdana", Font.PLAIN, 9));
